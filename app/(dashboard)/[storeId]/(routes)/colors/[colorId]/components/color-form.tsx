@@ -140,9 +140,14 @@ export const ColorForm: React.FC<ColorFormProps> = ({
                   <FormControl>
                     <div className="flex items-center gap-x-4">
                       <Input disabled={loading} placeholder="Color value" {...field} />
-                      <div 
-                        className="border p-4 rounded-full" 
-                        style={{ backgroundColor: field.value }}
+                      <input
+                        type="color"
+                        disabled={loading}
+                        value={field.value || '#000000'}
+                        onChange={(e) => field.onChange(e.target.value)}
+                        className="w-10 h-10 rounded-full border border-gray-300 cursor-pointer p-0 overflow-hidden"
+                        style={{ appearance: 'none', WebkitAppearance: 'none', backgroundColor: 'transparent' }}
+                        title="Pick a color"
                       />
                     </div>
                   </FormControl>
